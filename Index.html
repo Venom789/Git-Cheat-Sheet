@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="Styles.css">
+    <title>Home : Git Cheat Sheet</title>
+    
+
+</head>
+<body>
+    <div id="banner">
+        <h1 class="banner_h1">Git Cheat Sheet <h1></h1>
+        <p class="banner_p">The essential Git commands every developer must know </p>
+
+    </div>
+
+    <div class="topnav" id="navbar">
+        <a class="active" href="#home">Home</a>
+        <a href="#Creating_Snapshots">Creating Snapshots</a>        
+        <a href="#Browsing_history">Browsing History</a>
+        <a href="#Branching_Merging">Branching & Merging</a>
+        <a href="#Collaboration">Collaboration</a>
+        <a href="#Rewriting_history">Rewriting History</a>
+        <a href="#Contact">Contact</a>
+        <a href="#About">About</a>
+        
+      </div>
+
+    <!----------------------------------------------------------HOME--------------------------------------------------------------------->
+
+    <div id="home">
+        <h1>Git and GitHub Introduction</h1>
+        <hr>
+        <p>
+            <h2>What is Git?</h2>
+            Git is a popular version control system. It was created by Linus Torvalds in 2005, 
+            and has been maintained by Junio Hamano since then.<br/>
+            It is used for:
+            <ul>
+                <li>Tracking code changes</li>
+                <li>Tracking who made changes</li>
+                <li>Coding collaboration</li>
+            </ul>
+            
+
+            <h2>What does Git do?</h2>
+            <ul>
+                <li>Manage projects with Repositories</li>
+                <li>Clone a project to work on a local copy</li>
+                <li>Control and track changes with Staging and Committing</li>
+                <li>Branch and Merge to allow for work on different parts and versions of a project</li>
+                <li>Pull the latest version of the project to a local copy</li>
+                <li>Push local updates to the main project</li>
+            </ul>
+
+            <h2>Working with Git</h2>
+            <ul>
+                <li>Initialize Git on a folder, making it a Repository</li>
+                <li>Git now creates a hidden folder to keep track of changes in that folder</li>
+                <li>When a file is changed, added or deleted, it is considered modified</li>
+                <li>You select the modified files you want to Stage</li>
+                <li>The Staged files are Committed, which prompts Git to store a permanent snapshot of the files</li>
+                <li>Git allows you to see the full history of every commit.</li>
+                <li>You can revert back to any previous commit.</li>
+                <li>Git does not store a separate copy of every file in every commit, but keeps track of changes made in each commit.</li>
+            </ul>
+
+            <h2>Why Git?</h2>
+            <ul>
+                <li>Over 70% of developers use Git!</li>
+                <li>Developers can work together from anywhere in the world.</li>
+                <li>Developers can see the full history of the project.</li>
+                <li>Developers can revert to earlier versions of a project.</li>
+            </ul>
+
+            <h2>What is GitHub?</h2>
+            <ul>
+                <li>Git is not the same as GitHub.</li>
+                <li>GitHub makes tools that use Git.</li>
+                <li>GitHub is the largest host of source code in the world, and has been owned by Microsoft since 2018.</li>
+                <li>In this tutorial, we will focus on using Git with GitHub.</li>
+            </ul>
+            <hr/>
+
+
+
+
+        </p>
+
+
+
+    </div>
+    <br/>
+    <!-----------------------------------------------CREATING SNAPSHOTS----------------------------------------------------------------->
+
+    <section id="Creating_Snapshots">
+
+        <h1>Creating Snapshots</h1><hr/>
+    
+    
+        <p>
+            <h2>Intializing a repository</h2>
+            <ul>
+                <li>git init</li>
+            </ul>
+    
+            <h2>Staging files</h2>
+            <ul class="t2">
+                <li>git add file1.js             <label class="test" ># Stages a single file  </label></li>
+                <li>git add file1.js file2.html  <label class="test" ># Stages multiple files</label> </li>
+                <li>git add *.js                 <label class="test" ># Stages with a pattern </label></li>
+                <li>git add .                    <label class="test" ># Stages the current directory and all its content </label> </li>
+            </ul>
+    
+            <h2>Viewing the status</h2>
+            <ul>
+                <li>git status                   <label class="test" ># Full status </label> </li>
+                <li>git status -s                <label class="test" ># Short status </label></li>
+            </ul>
+                  
+            <h2>Committing the staged files</h2>
+            <ul>  
+                <li>git commit -m “Message”      <label class="test" ># Commits with a one-line message </label> </li>
+                <li>git commit                   <label class="test" ># Opens the default editor to type a long message </label></li>
+            </ul>
+                  
+            <h2>Skipping the staging area</h2>
+            <ul> 
+                <li>git commit -am “Message”     <label class="test" ># Skip the staging area</label>  </li>
+            </ul>
+    
+            <h2>Removing files</h2>
+            <ul>  
+                <li>git rm file1.txt             <label class="test" ># Removes from working area and staging area </li></label>
+                <li>git rm --cached file1.txt    <label class="test" ># Removes from staging area only </li></label>
+            </ul>
+    
+            <h2>Renaming or moving files</h2>
+            <ul>
+                <li>git mv file1.js file1.txt   <label class="test" ># Rename or moving a file in Git is essentially the same operation; 
+                                                   both tell Git to look for an existing file in a new location.</label> </li>
+            </ul>
+    
+            <h2>Viewing the staged/unstaged changes</h2>
+            <ul> 
+                <li>git diff                    <label class="test"># Shows unstaged changes</label>  </li>
+                <li>git diff --staged           <label class="test"># Shows staged changes  </label>  </li>  
+                <li>git diff --cached           <label class="test"># Same as the above     </label>  </li>
+            </ul>      
+                  
+            <h2>Viewing the history</h2>
+            <ul>
+                <li>git log                     <label class="test"># Shows full history  </label></li> 
+                <li>git log --oneline           <label class="test"># Shows Summary of history </label>       </li>
+                <li>git log --reverse           <label class="test"># List the commits from the oldest to the newest </label></li>
+            </ul>
+                 
+    
+            <h2>Viewing a commit</h2>
+            <ul>            
+                <li>git show 'short commit id'   <label class="test"># Shows the given commit </label></li>
+                <li>git show HEAD                <label class="test"># Shows the last commit  </label></li>
+                <li>git show HEAD~2              <label class="test"># Shows two steps before the last commit </label></li>
+                <li>git show HEAD:file.js        <label class="test"># Shows the version of file.js stored in the last commit </label></li>
+            </ul>
+    
+    
+            <h2>Unstaging files (undoing git add)</h2>
+            <ul>
+                <li>git restored --staged file.js  <label class="test"># Copies the last version of file.js from repo to index</label>  </li>
+            </ul>     
+                 
+            <h2>Discarding local changes</h2>
+            <ul>
+                <li>git restore file.js               <label class="test"># Copies file.js from index to working directory </label></li>
+                <li>git restore file1.js file2.js     <label class="test"># Restore multiple files in working directory </label></li>
+                <li>git restore .                     <label class="test"># Discard all local changes (except untracked files)</label> </li>
+                <li>git clean -fd                     <label class="test"># Removes all untracked files </label> </li>
+            </ul>    
+    
+    
+            <h2>Restoring an earlier version of a file</h2>
+            <ul> 
+                <li>git restore --source=HEAD~2 file.j </li>
+            </ul> <hr/>
+    
+        </p>
+
+    </section><br/>
+
+    <!---------------------------------------------------Browsing_history---------------------------------------------------------------->
+     
+    <section id="Browsing_history">
+        <h1>Browsing History</h1> <hr/>
+      
+        <p>
+          <h2>Viewing the history</h2>
+            <ul>
+              <li>git log --patch             <label class="test"># Shows More detailed history </label></li>
+              <li>git log --stat              <label class="test"># Shows commit history with lines modified in file </label></li>
+            </ul>
+      
+          <h2>Filtering the history</h2>
+            <ul>
+              <li>git log -3                     <label class="test"># Shows the list of modified files </label></li>
+              <li>git log --author="Akash"       <label class="test">#</label></li>
+              <li>git log --before="2022-04-15"  <label class="test">#</label></li>
+              <li>git log --after="one week ago" <label class="test">#</label></li>
+              <li>git log --grep="GUI"           <label class="test"># Commits with "GUI" in their message </label> </li>
+              <li>git log --S "GUI"              <label class="test"># Commits with "GUI" in their patches </label> </li>
+              <li>git log hash1..hash2           <label class="test"># Range of commits                    </label> </li>
+              <li>git log file.txt               <label class="test"># Commits that touched file.txt       </label> </li>
+            </ul>  
+      
+          <h2>Formatting the log output</h2>
+            <ul>
+              <li>git log --pretty=format:"% an committed %H"   </li>
+            </ul>
+      
+          <h2>Creating an alias</h2>
+            <ul>                           
+              <li>git config --global alias.lg "log --oneline"  </li>   
+            </ul>
+      
+          <h2>Viewing a commit</h2>
+            <ul>
+              <li>git show HEAD~2                  <label class="test">#</label>  </li>
+              <li>git show HEAD~2:file.txt         <label class="test"># Shows the version of file stored in this commits</label>  </li>
+            </ul>  
+                          
+          <h2>Comparing commits</h2>
+            <ul>
+              <li>git diff HEAD~2 HEAD             <label class="test"># Shows the changes between two commits</label>  </li>
+              <li>git diff HEAD~2 HEAD file.txt    <label class="test"># Changes to file.txt only  </label>             </li>
+            </ul>
+      
+          <h2>Checking out a commit</h2>
+            <ul>
+              <li>git checkout 'commit id'         <label class="test"># Checks out the given commits</label>        </li>
+              <li>git checkout master              <label class="test"># Checks out the master Branching</label>     </li>
+            </ul>
+      
+          <h2>Finding a bad commit</h2>
+            <ul>
+              <li>git-bisect                       <label class="test"> # Use binary search to find the commit that introduced a bug</label></li>  
+              <li>git bisect start                 <label class="test">#</label> </li>                
+              <li>git bisect bad                   <label class="test"># Marks the current commit as a bad commit</label>  </li>
+              <li>git bisect good 'commit id'      <label class="test"># Marks the given commit as a good commit</label>   </li>
+              <li>git bisect reset                 <label class="test"># Terminates the bisect session</label>             </li>
+            </ul>  
+      
+          <h2>Finding contributer</h2>
+            <ul>
+              <li>git shortlog </li>
+            </ul>  
+                
+          <h2>Viewing the history of a file</h2>
+            <ul>
+              <li>git log file.txt                <label class="test"># Shows the commits that touched file.txt </label> </li>
+              <li>git log --stat file.txt         <label class="test"># Shows statistics (the no. of changes) for file.txt </label></li>
+              <li>git log --patch file.txt        <label class="test"># Shows the patches (changes) applied to file.txt </label></li>
+            </ul>  
+      
+          <h2>Finding the author of lines</h2>
+            <ul>  
+              <li>git blame file.txt              <label class="test"># Shows the author of each line in file.txt</label> </li>
+            </ul>  
+      
+          <h2>Tagging</h2>
+            <ul> 
+              <li>git tag v1.0                    <label class="test"># Tags the last commit as v1.0</label> </li>
+              <li>git tag v1.0 5e7a828            <label class="test"># Tags an earlier commit      </label> </li>
+              <li>git tag                         <label class="test"># List all the tags           </label> </li>
+              <li>git tag -d v1.0                 <label class="test"># Deletes the given tag       </label> </li>  
+            </ul>    
+      
+      
+          </p><hr/>
+    </section><br/>
+
+    <!--------------------------------------------------Branching & Merging-------------------------------------------------------------->  
+     
+    <section id="Branching_Merging">
+        <h1>Branching & Merging</h1><hr/>
+      
+        <p>
+          <h2>Managing branches</h2>
+          <ul>
+            <li>git branch (branch name)      <label class="test"># Creates a new branch  </label></li>
+            <li>git checkout main             <label class="test"># Switches to the main branch  </label></li>
+            <li>git switch main               <label class="test"># Same as above    </label></li>
+            <li>git switch -C (branch name)   <label class="test"># Creates and switches  </label></li>
+            <li>git branch -d (branch name)   <label class="test"># Delete the branch   </label></li>
+          </ul>
+              
+          <h2>Comparing branches</h2>
+          <ul>
+            <li>git log master..newbranch    <label class="test"># List the commits in the bugfix branch not in master   </label></li>
+            <li>git diff master..newbranch   <label class="test"># Shows the summary of changes   </label></li>
+          </ul>  
+      
+          <h2>Stashing</h2>
+          <ul>
+            <li>git stash push -m "message"    <label class="test"># Creates a new stash   </label></li>
+            <li>git stash list                 <label class="test"># Lists all the stashes  </label></li>
+            <li>git stash show stash@{1}       <label class="test"># Shows the given stash  </label></li>
+            <li>git stash show 1               <label class="test"># Shortcut for stash@{1}  </label></li>
+            <li>git stash apply 1              <label class="test"># Applies the given stash to the working dir   </label></li>
+            <li>git stash drop 1               <label class="test"># Delelte the given stash   </label> </li>
+            <li>git stash clear                <label class="test"># Delete all the stashes     </label></li>
+          </ul>
+      
+          <h2>Merging</h2>
+          <ul>
+            <li>git merge newbranch           <label class="test"> # Merges the newbranch into the current branch  </label></li>
+            <li>git merge --no-ff newbranch   <label class="test"> # Creates a merge commit even if FF is possible  </label></li>
+            <li>git merge --squash newbranch  <label class="test"> # Performs a squash merge  </label></li>
+            <li>git merge --abort             <label class="test"> # Aborts the merge </label></li>
+          </ul>
+      
+          <h2>Viewing the merged branches</h2>
+          <ul>
+            <li>git branch --merged            <label class="test"> # Shows the merged branches   </label></li>
+            <li>git branch --no-merged         <label class="test"> # Shows the unmerged branches </label> </li>
+          </ul>
+      
+          <h2>Rebasing</h2>
+          <ul>
+            <li>git rebase master               <label class="test"># Changes the base of the current branch  </label></li>
+          </ul>
+      
+          <h2>Cherry picking</h2>
+          <ul>
+            <li>git cherry-pick dad47ed         <label class="test"># Applies the given commit on the current branch </label> </li>
+          </ul>
+                    
+        </p><hr/>
+      
+    </section> <br/>
+
+  <!---------------------------------------------------------Collaboration--------------------------------------------------------------->
+  
+  <section id="Collaboration">
+    <h1>Collaboration</h1><hr/>
+  
+    <p>
+      <h2>Cloning a repository</h2>
+      <ul>     
+        <li>git clone url              <label class="test">#</label></li>
+      </ul>
+  
+      <h2>Syncing with remotes</h2>
+      <ul>
+        <li>git fetch origin master     <label class="test"># Fetches master from origin  </label></li>
+        <li>git fetch origin            <label class="test"># Fetches all objects from origin </label></li>
+        <li>git fetch                   <label class="test"># Shortcut for “git fetch origin” </label></li>
+        <li>git pull                    <label class="test"># Fetch + merge                    </label></li>
+        <li>git push origin master      <label class="test"># Pushes master to origin          </label></li>
+        <li>git push                    <label class="test"># Shortcut for “git push origin master” </label> </li>
+      </ul>
+  
+      <h2>Sharing tags</h2>
+      <ul>
+        <li>git push origin v1.0          <label class="test"># Pushes tag v1.0 to origin  </label></li>
+        <li>git push origin —delete v1.0  <label class="test">#                            </label> </li>
+      </ul>
+  
+      <h2>Sharing branches</h2>
+      <ul>
+        <li>git branch -r                <label class="test"># Shows remote tracking branches  </label></li>
+        <li>git branch -vv               <label class="test"># Shows local & remote tracking branches  </label></li>
+        <li>git push -u origin bugfix    <label class="test"># Pushes bugfix to origin  </label></li>
+        <li>git push -d origin bugfix    <label class="test"># Removes bugfix from origin  </label></li>
+      </ul>
+  
+      <h2>Managing remotes</h2>
+      <ul>
+        <li>git remote                       <label class="test"># Shows remote repos  </label></li>
+        <li>git remote add upstream url      <label class="test"># Adds a new remote called upstream  </label></li>
+        <li>git remote rm upstream           <label class="test"># Remotes upstream  </label></li>
+      </ul>
+  
+  
+    </p><hr/>
+      
+  </section><br/>
+
+  <!--------------------------------------------------------Rewriting_History------------------------------------------------------------>
+
+  <section id="Rewriting_history">
+    <h1>Rewriting History</h1><hr/>
+  
+    <p>
+      <h2>Undoing commits</h2>
+      <ul>
+        <li>git reset --soft HEAD~1        <label class="test"># Removes the last commit, keeps changed staged   </label> </li>
+        <li>git reset --mixed HEAD~1        <label class="test"># Unstages the changes as well   </label> </li>
+        <li>git reset --hard HEAD~1         <label class="test"># Discards local changes   </label> </li>
+      </ul>
+          
+      <h2>Reverting commits</h2>
+      <ul>
+        <li>git revert 72856ea             <label class="test"># Reverts the given commit   </label> </li>
+        <li>git revert HEAD~3..            <label class="test"># Reverts the last three commits   </label> </li>
+        <li>git revert --no-commit HEAD~3..<label class="test"># </label></li>
+      </ul>
+          
+      <h2>Recovering lost commits</h2>
+      <ul>
+        <li>git reflog                     <label class="test"># Shows the history of HEAD   </label> </li>
+        <li>git reflog show bugfix         <label class="test"># Shows the history of bugfix pointer   </label> </li>
+      </ul>
+  
+      <h2>the last commit</h2>
+      <ul>
+        <li>git commit --amend  </li>
+      </ul>
+          
+      <h2>Interactive rebasing</h2>
+      <ul>
+        <li>git rebase -i HEAD~5 </li>
+      </ul>
+  
+  
+    </p><hr/>
+      
+  </section><br/>
+  <!---------------------------------------------------------Contact Form---------------------------------------------------------------->
+
+  <div id="Contact">
+    <h2 class="contact">Contact</h2>
+    <form action="#">
+  
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+  
+      <label for="Email">Email</label>
+      <input type="text" id="Email" name="Email" placeholder="abc@gmail.com"><br/><br/>
+     
+  
+      <label for="Message">Message</label>
+      <textarea id="Message" name="Message" placeholder="Write something.." style="height:200px"></textarea>
+  
+      <input type="submit" value="Submit">
+  
+    </form>
+  </div><br/>
+<!----------------------------------------------------------About us--------------------------------------------------------------------->
+  <div id="About">
+    <h1>About Us</h1>
+    <a href="https://www.linkedin.com/in/deep98akash/" target="_blank">linkedin.com/in/deep98akash/</a>
+    <p>Some text about who we are and what we do.</p>
+    <p>Resize the browser window to see that this page is not responsive by the way.</p>
+  </div>
+   
+  <!---------------------------------------------------------Footer---------------------------------------------------------------------->
+  <footer class="bg-dark-1">
+    <section id="footer" class="py-5">
+      <div class="container text-center">
+        <a href="#" class="twitter"></a>
+        <a href="https://www.linkedin.com/in/deep98akash/" target="_blank" class="linkedin"></a>
+        <a href="#" class="facebook"></a>
+        <a href="#" class="skype"></a>
+        
+        <h4>Copyright @ 2022 designed by Akash Deep Suman</h4>
+      </div>
+    </section>
+  </footer>
+    
+
+    
+</body>
+<script src="script.js"></script>
+</html>
